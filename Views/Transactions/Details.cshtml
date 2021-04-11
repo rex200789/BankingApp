@@ -1,0 +1,42 @@
+﻿@model Transactions
+@{
+    ViewBag.Title = "Details";
+}
+
+<h4>Details</h4>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            From Account Name : @Html.DisplayFor(model => model.FROM_ACCOUNT_NAME)
+        </dt>
+
+        <dt>
+            From Account Balance : @Html.DisplayFor(model => model.FROM_ACCOUNT_BALANCE)
+        </dt>
+
+        <dt>
+            To Account Name : @Html.DisplayFor(model => model.TO_ACCOUNT_NAME)
+        </dt>
+
+        <dt>
+            To Account Balance : @Html.DisplayFor(model => model.TO_ACCOUNT_BALANCE)
+        </dt>
+
+        <dt>
+            Amount : @Html.DisplayFor(model => model.AMOUNT)
+        </dt>
+
+        <dt>
+            Transaction Time : @Html.DisplayFor(model => model.TRANACTION_TIMESTAMP)
+        </dt>
+
+        <dt>
+            Transaction ID : @Html.DisplayFor(model => model.TRANSACTION_ID)
+        </dt>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

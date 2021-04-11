@@ -1,0 +1,26 @@
+﻿@model Accounts
+@{
+    ViewBag.Title = "Details";
+}
+
+<h4>Details</h4>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Account ID : @Html.DisplayFor(model => model.ACCOUNT_ID)
+        </dt>
+
+        <dt>
+            Account Name : @Html.DisplayFor(model => model.ACCOUNT_NAME)
+        </dt>
+
+        <dt>
+            Account Balance : @Html.DisplayFor(model => model.ACCOUNT_BALANCE)
+        </dt>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

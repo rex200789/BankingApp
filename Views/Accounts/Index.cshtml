@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "All Accounts";
+}
+@model IEnumerable<Accounts>
+
+<div class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>
+                    All accounts
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h4>
+                    Accounts
+                </h4>
+            </div>
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-3">
+                <a asp-action="create" class="nav-link text-light btn btn-primary" asp-controller="Accounts">Create new</a>
+            </div>
+        </div>
+        <div class="row">
+            <table class="table">
+                <tr>
+                    <th>
+                        Account Name
+                    </th>
+                    <th>
+                        Account Balance
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ACCOUNT_NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ACCOUNT_BALANCE)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ACCOUNT_ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ACCOUNT_ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ACCOUNT_ID })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

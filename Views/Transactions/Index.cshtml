@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "All Transactions";
+}
+@model IEnumerable<Transactions>
+
+<div class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>
+                    All transactions
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            </div>
+        </div>
+        <div class="row">
+            <table class="table">
+                <tr>
+                    <th>
+                        From Account
+                    </th>
+                    <th>
+                        To Account
+                    </th>
+                    <th>
+                        Transaction Time
+                    </th>
+                    <th>
+                        Amount Debited
+                    </th>
+                    <th>
+                        From Account Balance
+                    </th>
+                    <th>
+                        To Account Balance
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FROM_ACCOUNT_NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TO_ACCOUNT_NAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TRANACTION_TIMESTAMP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AMOUNT)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FROM_ACCOUNT_BALANCE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TO_ACCOUNT_BALANCE)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.TRANSACTION_ID })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Transfer Funds";
+}
+@model TransactionsViewModel
+
+<div class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>
+                    Transfer Funds
+                </h4>
+            </div>
+        </div>
+        @using (Html.BeginForm("Edit", "Transfers", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-md-12">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    From account
+                </div>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(m => m.FromId, new SelectList(Model.ListItems, "ACCOUNT_ID", "ACCOUNT_NAME"), "Select From Account")
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    To account
+                </div>
+                <div class="col-md-6">
+                    @Html.DropDownListFor(m => m.ToId, new SelectList(Model.ListItems, "ACCOUNT_ID", "ACCOUNT_NAME"), "Select To Account")
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    Amount to transfer
+                </div>
+                <div class="col-md-6">
+                    @Html.TextBoxFor(m => m.Amount)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <input type="submit" value="Transfer" class="btn btn-primary" />
+                </div>
+                <div class="col-md-10">
+                </div>
+            </div>
+        }
+    </div>
+</div>

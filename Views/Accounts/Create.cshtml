@@ -1,0 +1,45 @@
+﻿@model Accounts
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h4>Create</h4>
+
+@using (Html.BeginForm("Create", "Accounts", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-4">
+                Account Name
+            </div>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.ACCOUNT_NAME, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ACCOUNT_NAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-4">
+                Account Balance
+            </div>
+            <div class="col-md-8">
+                @Html.EditorFor(model => model.ACCOUNT_BALANCE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ACCOUNT_BALANCE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
