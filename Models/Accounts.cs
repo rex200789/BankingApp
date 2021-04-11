@@ -13,8 +13,7 @@ namespace BankingApp.Models
         [StringLength(maximumLength: 25, MinimumLength = 1, ErrorMessage = "Length must be between 1 to 25 characters")]
         public string ACCOUNT_NAME { get; set; }
 
-        [Required]
-        [DataType(DataType.Currency)]
+        [Required]        
         [Column(TypeName = "decimal(18, 2)")]
         public decimal ACCOUNT_BALANCE { get; set; }
 
